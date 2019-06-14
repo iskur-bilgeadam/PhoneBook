@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PhoneBook.MVC.UI.Entities.Person>
+
+@{
+    ViewBag.Title = "GetPersons";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get Persons</h2>
+
+<p>
+    <a href="/Person/AddPerson/" class="btn btn-primary">Add Person</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TCKN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TCKN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>            
+            <a href="/Phone/AddPhone/@item.ID" class="btn btn-warning">Add Phone</a>
+            <a href="/Person/GetPersonDetail/@item.ID" class="btn btn-warning">Detail</a>
+        </td>
+    </tr>
+}
+
+</table>
